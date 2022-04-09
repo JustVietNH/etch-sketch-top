@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    background-color: rebeccapurple;
+    border-radius: 20px;
+
+}
+
+.container {
+    display: flex;
+
+}
+
+.options {
+    display: flex;
+    background-color: green;
+    width: 40%;
+    flex: 1 1 ;
+    margin: 10px;
+    border-radius: 20px;
+
+
+}
+
+.sketchContainer {
+    display: flex;
+    background-color: brown;
+    width: 60%;
+    height: 32em;
+    flex: 1 1 45em;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 20px;
+
+}
+
+.sketchWindow {
+    display: grid;
+    grid-gap: 0;
+    grid-template-rows: 300px;
+    grid-template-columns:  300px;
+}
+
+.grid-item {
+    padding: 10px;
+    margin:10;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
