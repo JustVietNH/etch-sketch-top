@@ -21,10 +21,7 @@ function checkBox() {
   const allSwitch = document.getElementsByClassName("switch");
   for (let box = 0; box < allSwitch.length; box++) {
     let singleSwitch = allSwitch[box];
-    singleSwitch.addEventListener('click', function(e){
-      console.log(e)
-      
-    })
+    
   }
 }
 function checkColor(cell){
@@ -58,7 +55,19 @@ function makeHover() {
   }
 }
 
+function refreshGrid() {
+  const refreshBtn = document.getElementById("refresh")
+  refreshBtn.addEventListener("click", function(e){
+    const allCells = document.getElementsByClassName("cell")
+    for(let cnt = 0; cnt < allCells.length; cnt++) {
+      cell = allCells[cnt]
+      cell.style.backgroundColor = "white";
+    }
+  })
+}
+
 createGrid(16);
+refreshGrid();
 checkBox();
 makeHover();
 
