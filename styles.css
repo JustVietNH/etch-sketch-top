@@ -6,6 +6,7 @@ body {
 ul {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .header {
@@ -15,6 +16,13 @@ ul {
     background-color: rebeccapurple;
     border-radius: 20px;
 
+}
+
+.footer {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    background-color: rebeccapurple;
 }
 
 .container {
