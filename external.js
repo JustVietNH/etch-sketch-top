@@ -1,7 +1,20 @@
 
 const container = document.querySelector(".sketchWindow")
 const checkRain = document.getElementById('switchRain');
-const checkGrad = document.getElementById('switchGrad');
+const checkGrad = document.getElementById('switchGrad'); //changing to radio button
+let slider = document.getElementById("myRange");
+let output = document.getElementById("demo");
+output.textContent = slider.value; // Display the default slider value
+let gridSize = 16;
+
+refresh.onclick = () => reload();
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.textContent = this.value;
+  gridSize = this.value;
+} 
+
 
 function createGrid(gridSize){
   for (let rows = 0; rows < gridSize; rows++) {
@@ -17,16 +30,8 @@ function createGrid(gridSize){
     collection[i].style.width = (480/gridSize)+"px";
   }
 }
-function checkBox() {
-  const allSwitch = document.getElementsByClassName("switch");
-  for (let box = 0; box < allSwitch.length; box++) {
-    let singleSwitch = allSwitch[box];
-    
-  }
-}
+
 function checkColor(cell){
-  console.log("CHANGE")
-  
   if (checkRain.checked) {
     checkGrad.checked = false;
     return '#'+(0x1000000+Math.random()*0xffffff).toString(16).slice(1,7)
@@ -55,21 +60,21 @@ function makeHover() {
   }
 }
 
-function refreshGrid() {
-  const refreshBtn = document.getElementById("refresh")
-  refreshBtn.addEventListener("click", function(e){
-    const allCells = document.getElementsByClassName("cell")
-    for(let cnt = 0; cnt < allCells.length; cnt++) {
-      cell = allCells[cnt]
-      cell.style.backgroundColor = "white";
-    }
-  })
+function clear() {
+  container.innerHTML = "";
+}
+function reload() {
+  clear();
+  createGrid(gridSize);
+  makeHover();
 }
 
-createGrid(16);
-refreshGrid();
-checkBox();
-makeHover();
+
+window.onload = () => {
+  createGrid(gridSize);
+  makeHover();
+}
+
 
 
 
