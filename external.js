@@ -1,14 +1,25 @@
 
 const container = document.querySelector(".sketchWindow")
 
-function makeRows(rows, cols) {
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-    for (c = 0; c < (rows * cols); c++) {
-      let cell = document.createElement("div");
-      cell.innerText = (c + 1);
-      container.appendChild(cell).className = "grid-item";
-    };
-  };
-  
-  makeRows(4, 4);
+function createGrid(gridSize){
+  for (let rows = 0; rows < gridSize; rows++) {
+    for (let cols = 0; cols < gridSize; cols++) {
+      let p = document.createElement('div');
+      p.classList.add('cell');
+      container.append(p)
+    }
+  }
+  const collection = document.getElementsByClassName("cell");
+  for (let i = 0; i < collection.length; i++) {
+    collection[i].style.height = (480/gridSize)+"px";
+    collection[i].style.width = (480/gridSize)+"px";
+  }
+}
+
+createGrid(16);
+
+
+
+
+
+
