@@ -16,8 +16,20 @@ function createGrid(gridSize){
   }
 }
 
+function recolor(e) {
+  e.style.backgroundColor = "black";
+}
+function makeHover() {
+  const allCells = document.getElementsByClassName("cell");
+  for (let cell = 0; cell < allCells.length; cell++) {
+    let singleCell = allCells[cell];
+    singleCell.addEventListener('mouseover', function(e) {
+    recolor(singleCell);
+    });
+  }
+}
 createGrid(16);
-
+makeHover();
 
 
 
